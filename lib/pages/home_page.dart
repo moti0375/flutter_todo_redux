@@ -7,7 +7,15 @@ import 'package:flutter_todo_redux/ui/add_item_widget.dart';
 import 'package:flutter_todo_redux/ui/item_list_widget.dart';
 import 'package:flutter_todo_redux/ui/remove_items_widget.dart';
 
+//Flutter Redux dev tools
+import 'package:flutter_redux_dev_tools/flutter_redux_dev_tools.dart';
+import 'package:redux_dev_tools/redux_dev_tools.dart';
+
+
 class AppHomePage extends StatelessWidget {
+  final DevToolsStore<AppState> store;
+  AppHomePage(this.store);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +34,8 @@ class AppHomePage extends StatelessWidget {
           ],
         ),
       ),
+      drawer: Container(
+        child: ReduxDevTools(store)),
     );
   }
 }
